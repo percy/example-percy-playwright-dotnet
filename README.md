@@ -94,6 +94,7 @@ On completion of the script, you would be able to see the your percy build. Sinc
 #### For Percy on Automate
 
 ``` shell
+$ cd automate
 $ npx percy exec --verbose  -- dotnet test --filter "Category=automate-percy-test"
 ```
 
