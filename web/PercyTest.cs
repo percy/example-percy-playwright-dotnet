@@ -47,7 +47,7 @@ namespace PercyWeb
 
                 // Check the title
                 var pageTitle = await page.TitleAsync();
-                Assert.IsTrue(pageTitle.Contains("StackDemo"));
+                Assert.That(pageTitle, Does.Contain("StackDemo"));
 
                 // Click on the Apple products
                 await page.ClickAsync("//*[@id='__next']/div/div/main/div[1]/div[1]/label/span");
@@ -76,7 +76,7 @@ namespace PercyWeb
                 Percy.Snapshot(page, "snapshot_2", options);
 
                 // Assert that the product text matches
-                Assert.AreEqual(productOnCartText, productOnPageText);
+                Assert.That(productOnCartText, Is.EqualTo(productOnPageText));
                 if (productOnCartText == productOnPageText)
                 {
                     await MarkTestStatus("passed", "Title matched", page);
