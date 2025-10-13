@@ -62,7 +62,7 @@ namespace PercyOnAutomate
 
                 // Check the title
                 var pageTitle = await page.TitleAsync();
-                Assert.IsTrue(pageTitle.Contains("StackDemo"));
+                Assert.That(pageTitle, Does.Contain("StackDemo"));
 
                 // Click on the Samsung products
                 await page.ClickAsync("//*[@id='__next']/div/div/main/div[1]/div[2]/label/span");
@@ -91,7 +91,7 @@ namespace PercyOnAutomate
                 Percy.Screenshot(page, "screenshot_2", options);
 
                 // Assert that the product text matches
-                Assert.AreEqual(productOnCartText, productOnPageText);
+                Assert.That(productOnCartText, Is.EqualTo(productOnPageText));
                 if (productOnCartText == productOnPageText)
                 {
                     await MarkTestStatus("passed", "Title matched", page);
